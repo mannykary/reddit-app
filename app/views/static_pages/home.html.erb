@@ -1,6 +1,12 @@
 <ul data-role="listview">
-  <li><a href="#">item 1</a></li>
-  <li><a href="#">item 2</a></li>
-  <li><a href="#">item 3</a></li>
-  <li><a href="#">item 4</a></li>
+  <% 0.upto(@subhash.length-1) do |i| %>
+    <li>
+      <a href='<%= @subhash[i]["data"]["url"] %>'>
+        <img src='<%= @subhash[i]["data"]["thumbnail"] %>'>
+        <%= @subhash[i]["data"]["title"] %>
+      </a>
+      <span class="ui-li-count"><%= @subhash[i]["data"]["score"] %></span>
+    </li>
+  <% end %>
+
 </ul>

@@ -1,11 +1,25 @@
-<ul data-role="listview">
+<ul data-role="listview" data-inset="true">
   <% 0.upto(@subhash.length-1) do |i| %>
-    <li>
+    <li data-icon="false">
       <a href='<%= @subhash[i]["data"]["url"] %>'>
         <img src='<%= @subhash[i]["data"]["thumbnail"] %>'>
-        <%= @subhash[i]["data"]["title"] %>
+        <h1><%= @subhash[i]["data"]["title"] %></h1>
+        <span class="ui-li-count">
+          <%= @subhash[i]["data"]["score"] %>
+        </span>
       </a>
-      <span class="ui-li-count"><%= @subhash[i]["data"]["score"] %></span>
+      <p>
+        <a href='http://www.reddit.com<%= @subhash[i]["data"]["permalink"] %>'>
+          <%= @subhash[i]["data"]["num_comments"] %> comments</a>
+
+        | <%= time_ago_in_words(DateTime.strptime(@subhash[i]["data"]["created"].to_s, '%s')) %> ago |
+
+        <a href='http://www.reddit.com/user/<%= @subhash[i]["data"]["author"] %>'>
+          /u/<%= @subhash[i]["data"]["author"] %></a> |
+
+        <a href='http://www.reddit.com/r/<%= @subhash[i]["data"]["subreddit"] %>'>
+          /r/<%= @subhash[i]["data"]["subreddit"] %></a>
+      </p>
     </li>
   <% end %>
 

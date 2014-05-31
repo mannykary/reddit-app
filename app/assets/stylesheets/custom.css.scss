@@ -1,1 +1,16 @@
 //@import "bootstrap";
+
+.ui-listview li h1 {
+    font-size: 0.75em;
+    white-space: normal;
+}
+
+.ui-page .ui-content .ui-listview .ui-li-count {
+    left  : auto;
+    right : 10px;
+}
+
+.ui-listview .ui-li-has-thumb .ui-btn {
+    padding-left: 5em;
+    padding-right: 5em;
+}

@@ -1,16 +1,35 @@
 //@import "bootstrap";
 
+.post-metadata {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+a.ui-link {
+  color: #888;
+  text-decoration: none;
+}
+
+a.ui-link:visited {
+  color: #888;
+}
+
+a.ui-link:hover {
+  text-decoration: underline;
+  background-color: transparent;
+}
+
 .ui-listview li h1 {
-    font-size: 0.75em;
-    white-space: normal;
+  font-size: 0.75em;
+  white-space: normal;
 }
 
 .ui-page .ui-content .ui-listview .ui-li-count {
-    left  : auto;
-    right : 10px;
+  left  : auto;
+  right : 10px;
 }
 
 .ui-listview .ui-li-has-thumb .ui-btn {
-    padding-left: 5em;
-    padding-right: 5em;
+  padding-left: 5em;
+  padding-right: 5em;
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>RedditApp</title>
+  <title>Reddit App</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= stylesheet_link_tag  'https://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css' %>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
@@ -13,28 +13,17 @@
 <body>
   <div data-role="page">
     <div data-role="header" data-position="fixed">
-      <h1>Reddit App</h1>
+      <h1>REDDIT APP</h1>
       <div data-role="navbar">
         <ul>
-          <li><a href="#" data-icon="home"></a></li>
-          <li><a href="#" data-icon="search"></a></li>
-          <li><a href="#" data-icon="star"></a></li>
-          <li><a href="#" data-icon="refresh"></a></li>
+          <li><a href="/" data-icon="home"></a></li>
+          <li><a href="javascript:window.location.reload();" data-icon="refresh"></a></li>
         </ul>
       </div>
     </div>
 
     <div data-role="content">
       <%= yield %>
-    </div>
-
-    <div data-role="footer" data-position="fixed">
-      <div data-role="navbar">
-        <ul>
-          <li><a href="#" data-icon="home">Home</a></li>
-          <li><a href="#" data-icon="gear">Settings</a></li>
-        </ul>
-      </div>
     </div>
   </div>
 </body>

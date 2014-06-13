@@ -11,7 +11,7 @@
       <div class="post-metadata">
         <p>
           <% if @subhash[i]["data"]["over_18"] == true %>
-            <strong style="color: red">NSFW</strong> |
+            <strong class="nsfw">NSFW</strong> |
           <% end %>
           <a class="comments-link" 
              href='http://www.reddit.com<%= @subhash[i]["data"]["permalink"] %>' target="_blank">

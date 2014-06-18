@@ -1,7 +1,19 @@
 <ul class="feed" data-role="listview" data-inset="true" data-counttheme="b">
   <% 0.upto(@subhash.length-1) do |i| %>
     <li data-icon="false">
-      <a href='<%= @subhash[i]["data"]["url"] %>' target="_blank">
+      <% if @subhash[i]["data"]["url"] =~ /png$/i || 
+            @subhash[i]["data"]["url"] =~ /jpg$/i ||
+            @subhash[i]["data"]["url"] =~ /gif$/i || 
+            @subhash[i]["data"]["url"] =~ /jpeg$/i ||
+            @subhash[i]["data"]["url"] =~ /imgur/i || 
+            @subhash[i]["data"]["url"] =~ /lvme.me/i ||
+            @subhash[i]["data"]["url"] =~ /livememe/i ||
+            @subhash[i]["data"]["secure_media"] != nil %>
+        <a href='#popup_<%= i %>' data-rel="popup" data-position-to="window"
+           data-transition="pop">
+      <% else %>
+        <a href='<%= @subhash[i]["data"]["url"] %>' target="_blank">
+      <% end %>
         <img src='<%= @subhash[i]["data"]["thumbnail"] %>'>
         <h1><%= @subhash[i]["data"]["title"] %></h1>
         <span class="ui-li-count">
@@ -23,10 +35,34 @@
             /u/<%= @subhash[i]["data"]["author"] %></a> |
 
           <a href='http://www.reddit.com/r/<%= @subhash[i]["data"]["subreddit"] %>' target="_blank">
-            /r/<%= @subhash[i]["data"]["subreddit"] %></a>
+            /r/<%= @subhash[i]["data"]["subreddit"] %></a> |
+          
+          <!--<% if @subhash[i]["data"]["url"] =~ /png$/i || 
+                @subhash[i]["data"]["url"] =~ /jpg$/i ||
+                @subhash[i]["data"]["url"] =~ /gif$/i || 
+                @subhash[i]["data"]["url"] =~ /jpeg$/i ||
+                @subhash[i]["data"]["url"] =~ /imgur/i || 
+                @subhash[i]["data"]["url"] =~ /lvme.me/i ||
+                @subhash[i]["data"]["url"] =~ /livememe/i ||
+                @subhash[i]["data"]["secure_media"] != nil %>
+            <a href='#popup_<%= i %>' data-rel="popup" data-position-to="window"
+               data-transition="pop">
+              Open Popup
+            </a> -->
+          <!-- <% end %> -->
         </p>
       </div>
     </li>
+    <div data-role="popup" id='popup_<%= i %>' class="ui-content"
+         data-overlay-theme="b" data-theme="a">
+      <a href="#" data-rel="back" data-role="button" data-theme="a" 
+         data-icon="delete" data-iconpos="notext" class="ui-btn-right">
+        Close
+      </a>
+      <a class="embed" href='<%= @subhash[i]["data"]["url"] %>'>
+        <%= @subhash[i]["data"]["url"] %>
+      </a>
+    </div>
   <% end %>
   <li>
     <%= link_to "Next page", { controller: "static_pages", 

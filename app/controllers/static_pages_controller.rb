@@ -6,6 +6,9 @@ class StaticPagesController < ApplicationController
   
   BASE_URL = 'http://www.reddit.com/r/all.json?limit=100'
   
+  # Add Embedly API key to config/secrets.yml as embedly_api_key 
+  @embedly_api = Rails.application.secrets.embedly_api_key.to_s
+  
   def about
   end
 
@@ -18,6 +21,13 @@ class StaticPagesController < ApplicationController
     
     parse_json url
   
+  end
+  
+  def preview
+    @url_encoded = params[:url]
+    @url = URI.decode(params[:url])
+    puts "url_encoded:" + @url_encoded
+    puts "url:" + @url
   end
     
   def parse_json (url)

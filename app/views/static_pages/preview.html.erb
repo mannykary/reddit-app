@@ -1,0 +1,25 @@
+<script type="text/javascript">
+	$('document').ready(function() {
+
+	  var width = $(window).width() - 30;
+	  var height = $(window).height() - 100;
+	  	   
+	  $('div a.embed').embedly({
+	    key: '<%= @embedly_api %>',
+        query: { 
+          maxwidth: width, 
+          maxheight: height, 
+          wmode: 'transparent' },
+        method: 'replace'
+	  });
+	  
+	});
+</script>
+
+<div class="embed-wrapper">
+  <div class="embed-container">
+    <a class="embed" href='<%= @url %>'>
+     <%= @url %>
+    </a>
+  </div>
+</div>
